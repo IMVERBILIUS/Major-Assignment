@@ -54,7 +54,18 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                                     <p class="card-text">Duration: <?php echo $row["flight_duration"]; ?></p>
                                     <p class="card-text">Price: <?php echo $row["flight_price"]; ?></p>
                                     <p class="card-text">Airline: <?php echo $row["airlines_name"]; ?></p>
-                                    <a href="#" class="btn btn-warning">Book Now</a>
+                                    <!-- Hidden input fields -->
+                                    <form action="booking.php" method="post">
+                                        <input type="hidden" name="flight_id" value="<?php echo $row["flight_result_id"]; ?>">
+                                        <input type="hidden" name="flight_destination" value="<?php echo $row["flight_destination"]; ?>">
+                                        <input type="hidden" name="flight_date" value="<?php echo $row["flight_date"]; ?>">
+                                        <input type="hidden" name="return_date" value="<?php echo $row["return_date"]; ?>">
+                                        <input type="hidden" name="flight_duration" value="<?php echo $row["flight_duration"]; ?>">
+                                        <input type="hidden" name="flight_price" value="<?php echo $row["flight_price"]; ?>">
+                                        <input type="hidden" name="airline_name" value="<?php echo $row["airlines_name"]; ?>">
+                                        <!-- Book Now button -->
+                                        <button type="submit" class="btn btn-warning">Book Now</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -65,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                         <!-- This div ensures the button is aligned with the flight details -->
                     </div>
                     <div class="col-md-6 text-right">
-                        <a href="../index.php" class="btn btn-primary">Go Back to Home</a>
+                        <a href="index.php" class="btn btn-primary">Go Back to Home</a>
                     </div>
                 </div>
             </div>
