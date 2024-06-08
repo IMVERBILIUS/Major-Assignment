@@ -60,6 +60,14 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                         </div>
                     <?php endwhile; ?>
                 </div>
+                <div class="row justify-content-between mt-4">
+                    <div class="col-md-6">
+                        <!-- This div ensures the button is aligned with the flight details -->
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <a href="../index.php" class="btn btn-primary">Go Back to Home</a>
+                    </div>
+                </div>
             </div>
 
             <?php include '../MJ/layout/Footer.php'; ?>
