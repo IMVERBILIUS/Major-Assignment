@@ -1,4 +1,5 @@
 <?php include '../MJ/layout/Nav.php'; ?>
+
 <section>
     <div class="container">
         <form action="flight-result.php" method="get" class="submit-form mt-5">
