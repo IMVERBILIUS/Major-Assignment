@@ -1,0 +1,88 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    /* Reset default margin */
+    padding: 0;
+    /* Reset default padding */
+}
+
+section {
+    padding: 50px 0;
+    /* Add padding to the top and bottom of each section */
+}
+
+.banner {
+    background: url('../img/banner-bg.jpg') no-repeat center center;
+    background-size: cover;
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.banner h4 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.submit-form {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.about-us {
+    background-color: #f9f9f9;
+}
+
+.about-us h2 {
+    color: #333;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.about-us p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #666;
+}
+
+.most-visited .section-heading {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.most-visited .visited-item {
+    position: relative;
+}
+
+.most-visited .visited-item img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.most-visited .text-content {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+footer {
+    background: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer .social-icons a {
+    color: white;
+    margin: 0 10px;
+    font-size: 20px;
+}
+
+footer .social-icons {
+    margin-top: 20px;
+}
