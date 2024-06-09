@@ -21,16 +21,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
 </head>
 <body>
-<?php 
-    // calling db connection file
-    include_once('db_connect.php');
 
-    $sql = "SELECT DISTINCT flight_origin FROM flight_result";
-    $result_origin = mysqli_query($conn, $sql);
-
-    $sql = "SELECT DISTINCT flight_destination FROM flight_result";
-    $result_destination = mysqli_query($conn, $sql);
-?>
 <section class="banner" id="top">
     <div class="container">
         <img src="img/sasa3.png" alt="Flight Template" class="img-fluid" style="max-width: 200px;">

@@ -86,3 +86,32 @@ footer .social-icons a {
 footer .social-icons {
     margin-top: 20px;
 }
+
+.card-body {
+    position: relative;
+}
+
+.highlight-price {
+    /* Warna latar belakang untuk menyorot harga */
+    padding: 5px 10px;
+    /* Spasi dalam teks harga yang disorot */
+    border-radius: 5px;
+    /* Membuat ujung sudut teks menjadi lebih melengkung */
+    font-weight: bold;
+    color: #FFA500;
+    font-size: large;
+    position: absolute;
+    left: 90%;
+    top: 40%;
+}
+
+.text-center .highlight-price {
+    position: absolute;
+    /* Mengatur posisi absolut */
+    top: 35%;
+    /* Jarak dari atas */
+    right: 4%;
+    /* Jarak dari kanan */
+    transform: translateY(-50%);
+    /* Untuk menengahkan vertikal */
+}

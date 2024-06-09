@@ -1,3 +1,13 @@
+<?php 
+    // calling db connection file
+    include_once('db_connect.php');
+
+    $sql = "SELECT DISTINCT flight_origin FROM flight_result";
+    $result_origin = mysqli_query($conn, $sql);
+
+    $sql = "SELECT DISTINCT flight_destination FROM flight_result";
+    $result_destination = mysqli_query($conn, $sql);
+?>
 <?php include '../MJ/layout/Nav.php'; ?>
 
 <section>
@@ -49,6 +59,9 @@
                         </div>
                     </div>
                 </div>
+                <input type="hidden" name="original_origin" value="">
+                <input type="hidden" name="original_destination" value="">
+                <input type="hidden" name="original_trip_type" value="">
                 <div class="col-md-12">
                     <button type="submit" class="btn btn-warning btn-block">Search Flights</button>
                 </div>
@@ -56,6 +69,7 @@
         </form>
     </div>
 </section>
+
 
 <section class="about-us">
     <div class="container">
