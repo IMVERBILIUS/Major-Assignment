@@ -2,7 +2,7 @@
 
 <section>
     <div class="container">
-        <form action="flight-result.php" method="get" class="submit-form mt-5">
+        <form action="flight-result.php" method="post" class="submit-form mt-5">
             <h4>Check availability for <em>direction</em>:</h4>
             <div class="row">
                 <div class="col-md-6">
