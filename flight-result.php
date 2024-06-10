@@ -146,21 +146,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         </p>
                                     </div>
                                 </div>
-                                <form action="booking.php" method="post">
-                                    <!-- Hidden input fields -->
-                                    <input type="hidden" name="flight_id" value="<?php echo $row_return["flight_result_id"]; ?>">
-                                    <input type="hidden" name="flight_destination" value="<?php echo $row_return["flight_destination"]; ?>">
-                                    <input type="hidden" name="flight_date" value="<?php echo $row_return["flight_date"]; ?>">
-                                    <input type="hidden" name="return_date" value="<?php echo $row_return["return_date"]; ?>">
-                                    <input type="hidden" name="flight_duration" value="<?php echo gmdate("H:i:s", strtotime($row_return["arrival_time"]) - strtotime($row_return["departure_time"])); ?>">
-                                    <input type="hidden" name="departure_time" value="<?php echo $row_return["departure_time"]; ?>">
-                                    <input type="hidden" name="arrival_time" value="<?php echo $row_return["arrival_time"]; ?>">
-                                    <input type="hidden" name="flight_price" value="<?php echo $row_return["flight_price"]; ?>">
-                                    <input type="hidden" name="airline_name" value="<?php echo $row_return["airlines_name"]; ?>">
-                                    <input type="hidden" name="price" value="<?php echo $row_return["price"]; ?>">
-                                    <!-- Book Now button -->
-                                    <button type="submit" class="btn btn-warning mt-2 mx-auto d-block">Book Now</button>
-                                </form>
+                                <form action="passanger_book.php" method="post">
+                                <!-- Hidden input fields -->
+                                <input type="hidden" name="flight_id" value="<?php echo $row_return["flight_result_id"]; ?>">
+                                <input type="hidden" name="flight_destination" value="<?php echo $row_return["flight_destination"]; ?>">
+                                <input type="hidden" name="flight_date" value="<?php echo $row_return["flight_date"]; ?>">
+                                <input type="hidden" name="return_date" value="<?php echo $row_return["return_date"]; ?>">
+                                <input type="hidden" name="flight_duration" value="<?php echo gmdate("H:i:s", strtotime($row_return["arrival_time"]) - strtotime($row_return["departure_time"])); ?>">
+                                <input type="hidden" name="departure_time" value="<?php echo $row_return["departure_time"]; ?>">
+                                <input type="hidden" name="arrival_time" value="<?php echo $row_return["arrival_time"]; ?>">
+                                <input type="hidden" name="flight_price" value="<?php echo $row_return["flight_price"]; ?>">
+                                <input type="hidden" name="airline_name" value="<?php echo $row_return["airlines_name"]; ?>">
+                                <!-- Book Now button -->
+                                <button type="submit" class="btn btn-warning mt-2 mx-auto d-block">Book Now</button>
+                            </form>
                             </div>
                         </div>
                     </div>
