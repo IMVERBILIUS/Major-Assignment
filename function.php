@@ -13,17 +13,36 @@ function query($query){
     }
     return $rows;   
 }
-
-function insertPassenger($data) {
+function insertPayment($data) {
     global $conn;
-    
-    // Escape and retrieve data from the $data array
-    $passenger_name = mysqli_real_escape_string($conn, $data["passenger_name"] ?? "");
-    $passenger_contact = mysqli_real_escape_string($conn, $data["passenger_contact"] ?? "");
-    $passenger_email = mysqli_real_escape_string($conn, $data["passenger_email"] ?? "");
-    $passenger_date_birth = mysqli_real_escape_string($conn, $data["passenger_date_birth"] ?? "");
-    $nationality = mysqli_real_escape_string($conn, $data["nationality"] ?? "");
-    $passport_number = mysqli_real_escape_string($conn, $data["passport_number"] ?? "");
+
+    $amount = $data["amount"];
+    $booking_id = $data["booking_id"];
+    $payment_date = date("Y-m-d");
+
+    $sql_insert_payment = "INSERT INTO payment (payment_date, amount, booking_id) 
+                           VALUES ('$payment_date', '$amount', '$booking_id')";
+
+    if (mysqli_query($conn, $sql_insert_payment)) {
+        return true;
+    } else {
+        return mysqli_error($conn);
+    }
+}
+
+
+function insertPassengers($data, $index) {
+    global $conn;
+    $booking_date = mysqli_real_escape_string($conn, $data["booking_date"] ?? "");
+    $flight_result_id = mysqli_real_escape_string($conn, $data["flight_result_id"] ?? "");
+    $total = mysqli_real_escape_string($conn, $data["total"] ?? "");
+
+    $passenger_name = mysqli_real_escape_string($conn, $data["passenger_name"][$index] ?? "");
+    $passenger_contact = mysqli_real_escape_string($conn, $data["passenger_contact"][$index] ?? "");
+    $passenger_email = mysqli_real_escape_string($conn, $data["passenger_email"][$index] ?? "");
+    $passenger_date_birth = mysqli_real_escape_string($conn, $data["passenger_date_birth"][$index] ?? "");
+    $nationality = mysqli_real_escape_string($conn, $data["nationality"][$index] ?? "");
+    $passport_number = mysqli_real_escape_string($conn, $data["passport_number"][$index] ?? "");
 
     // Insert data into passenger table
     $sql_passenger = "INSERT INTO passenger (passenger_name, passenger_contact, passenger_email, passenger_date_birth, nationality, passport_number) VALUES ('$passenger_name', '$passenger_contact', '$passenger_email', '$passenger_date_birth', '$nationality', '$passport_number')";
@@ -35,18 +54,12 @@ function insertPassenger($data) {
         $passenger_id = mysqli_insert_id($conn);
 
         // Insert data into booking table using the retrieved passenger_id
-        $booking_date = mysqli_real_escape_string($conn, $data["booking_date"] ?? "");
-        $flight_result_id = mysqli_real_escape_string($conn, $data["flight_result_id"] ?? "");
-        $total = mysqli_real_escape_string($conn, $data["total"] ?? "");
-
-        // Modify the query to use $passenger_id
         $sql_booking = "INSERT INTO booking (passenger_id, booking_date, flight_result_id, total) VALUES ('$passenger_id', '$booking_date', '$flight_result_id', '$total')";
         
         $result_booking = mysqli_query($conn, $sql_booking);
         
         if ($result_booking) {
-            // Return the booking ID
-            return mysqli_insert_id($conn);
+            return mysqli_insert_id($conn); // Return the booking ID
         } else {
             // Error handling for booking table insertion
             echo "Error: " . mysqli_error($conn);
